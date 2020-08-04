@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pembayaran SPP</title>
+		<link
+			rel="stylesheet"
+			href="vendor/materialize-css/css/material-icons.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="vendor/materialize-css/css/materialize.min.css"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+		<script src="vendor/fontawesome/all.min.js"></script>
+		<script src="vendor/materialize-css/js/materialize.min.js"></script>
+		<script defer src="js/main.js"></script>
+	</head>
+	<body class="admin-panel">
+		<ul class="side-navigation">
+			<li>
+				<div class="user">
+					<div class="user-img">
+						<img src="images/sidebar/user.png" alt="user" width="50" />
+					</div>
+					<div class="user-content">
+						<p class="user-content__name">Tommy Rafael</p>
+						<p class="user-content__role">Role: Admin</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/sidebar/siswa.svg" alt="user" width="40" />
+					<p>Siswa</p>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/sidebar/petugas.svg" alt="user" width="40" />
+					<p>Petugas</p>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/sidebar/kelas.svg" alt="user" width="40" />
+					<p>Kelas</p>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/sidebar/spp.svg" alt="user" width="40" />
+					<p>SPP</p>
+				</a>
+			</li>
+			<li>
+				<ul class="collapsible black">
+					<li>
+						<div class="collapsible-header">
+							<a href="#">
+								<img src="images/sidebar/pembayaran.svg" alt="user" width="40" />
+								<p>Pembayaran</p>
+								<i class="fas fa-chevron-down"></i>
+							</a>
+						</div>
+						<ul class="collapsible-body">
+							<li>
+								<a href="#">Transaksi Pembayaran</a>
+							</li>
+							<li>
+								<a href="#">History Pembayaran</a>
+							</li>
+							<li>
+								<a href="#">Laporan Pembayaran</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div id="main-application">
+			<header>
+				<nav class="black">
+					<div class="nav-wrapper">
+						<a href="#" class="brand-logo left">Pembayaran SPP</a>
+						<ul class="right">
+							<li><a href="#" class="logout">Logout</a></li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!-- CRUD SHOW -->
+			<main>
+				<h3>Page name</h3>
+				<a href="#" class="btn waves-effect waves-light blue darken-4">Create Something</a>
+				<table>
+					<tr>
+						<th>No.</th>
+						<th>NISN</th>
+						<th>NIS</th>
+						<th>Nama</th>
+						<th>Id Kelas</th>
+						<th>Alamat</th>
+						<th>No telp.</th>
+						<th>Id SPP</th>
+						<th>Action</th>
+					</tr>
+					<tr>
+						<td>1.</td>
+						<td>19283941</td>
+						<td>23719423</td>
+						<td>Antonny Ahmad Wijayanto</td>
+						<td>3</td>
+						<td>Jl. Anggrek 15</td>
+						<td>08192345123</td>
+						<td>2</td>
+						<td>
+							<a href="#" class="btn waves-effect waves-light yellow darken-3"><i class="fas fa-pencil"></i></a>
+							<a href="#" class="btn waves-effect waves-light red darken-3"><i class="fas fa-trash"></i></a>
+						</td>
+					</tr>
+				</table>
+				<ul class="pagination">
+					<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+					<li class="active"><a href="#!">1</a></li>
+					<li class="waves-effect"><a href="#!">2</a></li>
+					<li class="waves-effect"><a href="#!">3</a></li>
+					<li class="waves-effect"><a href="#!">4</a></li>
+					<li class="waves-effect"><a href="#!">5</a></li>
+					<li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+				</ul>
+			</main> 
+
+			<!-- CRUD INPUT -->
+			<!-- <main>
+				<h3>Page Name</h3>
+				<form action="" method="POST">
+					<div class="input-field">
+						<label for="username">username</label>
+						<input type="text" id="username" name="username">
+					</div>
+					<div class="input-field">
+						<label for="username">username</label>
+						<input type="text" id="username" name="username">
+					</div>
+					<div class="input-field">
+						<label for="username">username</label>
+						<input type="text" id="username" name="username">
+					</div>
+					<div class="input-field">
+						<label for="username">username</label>
+						<input type="text" id="username" name="username">
+					</div>
+					<div class="input-field">
+						<label for="username">username</label>
+						<input type="text" id="username" name="username">
+					</div>
+					<div class="input-field">
+						<label for="username">username</label>
+						<input type="text" id="username" name="username">
+					</div>
+					<button type="submit" class="btn indigo darken-4 right">Submit</button>
+				</form>
+			</main> -->
+		</div>
+	</body>
+</html>

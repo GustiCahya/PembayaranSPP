@@ -1,0 +1,165 @@
+//breakpoints
+$bp-small : 600px;
+$bp-medium : 992px;
+$bp-large : 1200px;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 90% !important;
+}
+body{
+    background: #f0f0f0;
+    scroll-behavior: smooth;
+}
+.admin-panel{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    @media (min-width: $bp-medium) {
+        grid-template-columns: 250px 1fr;
+    }
+}
+//header
+nav{
+    .nav-wrapper{
+        padding: 0 25px;
+    }
+    .brand-logo{
+        font-family: "Segoe UI";
+        font-weight: 700;
+        font-size: 23px;
+        letter-spacing: 0.03rem;
+    }
+    li:hover{
+        filter: brightness(80%);
+    }
+}
+.side-navigation{
+    min-height: 100vh;
+    background: black;
+    @media (min-width: $bp-medium) {
+        padding: 0 15px;
+    }
+    .user{
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        color: #f0f0f0;
+        &-img{
+            img{
+                width: 50px;
+            }
+        }
+        &-content{
+            margin-left: 15px;
+            &__name{
+                font-weight: bold;
+                font-size: 16px;
+                letter-spacing: 0.03rem;
+                text-transform: capitalize;
+            }
+            &__role{
+                font-size: 13px;
+                letter-spacing: 0.03rem;
+                text-transform: capitalize;
+            }
+        }
+    }
+    a{
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.03rem;
+        color: #f0f0f0;
+    }
+    li{
+        a{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: #1f1f1f;
+            padding: 15px;
+            margin-bottom: 5px;
+            &:hover{
+                filter: brightness(80%);
+            }
+            img{
+                border-radius: 5px;
+            }
+            p{
+                margin-left: 15px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .collapsible{
+        border: none;
+        *{
+            padding: 0;
+            background: #1f1f1f !important;
+            border: none;
+        }
+        a{
+            padding: 15px;
+            display: inline-block;
+            width: 100%;
+        }
+        &-header a{
+            display: flex;
+            
+        }
+        &-body{
+            li{
+                padding-left: 15px;
+                border-bottom: 5px solid black;
+            }
+            li:first-of-type{
+                border-top: 5px solid black;
+            }
+        }
+    }
+}
+
+//main
+main{
+    padding: 5px 25px 70px 25px;
+    .pagination{
+        margin-top: 25px;
+        text-align: center;
+    }
+}
+
+//login
+.login{
+    min-height: 100vh;
+    background: linear-gradient(to right bottom, rgba(22, 22, 22, 0.8), rgba(26, 26, 26, 0.8)), url("../images/school.jpg") center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 60px 30px;
+        width: 500px;
+        border-radius: 10px;
+        background: #0c0c0c;
+        color: #f0f0f0;
+        text-align: center;
+        h3{
+            margin: 0;
+            padding: 0;
+            letter-spacing: 0.05rem;
+            font-weight: 600;
+        }
+        input{
+            color: white;
+            letter-spacing: .03rem;
+        }
+        .btn{
+            margin-top: 15px;
+        }
+    }
+}

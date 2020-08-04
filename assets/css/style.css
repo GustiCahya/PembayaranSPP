@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  width: 90% !important;
+}
+
+body {
+  background: #f0f0f0;
+  scroll-behavior: smooth;
+}
+
+.admin-panel {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 1fr;
+      grid-template-columns: 200px 1fr;
+}
+
+@media (min-width: 992px) {
+  .admin-panel {
+    -ms-grid-columns: 250px 1fr;
+        grid-template-columns: 250px 1fr;
+  }
+}
+
+nav .nav-wrapper {
+  padding: 0 25px;
+}
+
+nav .brand-logo {
+  font-family: "Segoe UI";
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: 0.03rem;
+}
+
+nav li:hover {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+
+.side-navigation {
+  min-height: 100vh;
+  background: black;
+}
+
+@media (min-width: 992px) {
+  .side-navigation {
+    padding: 0 15px;
+  }
+}
+
+.side-navigation .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  color: #f0f0f0;
+}
+
+.side-navigation .user-img img {
+  width: 50px;
+}
+
+.side-navigation .user-content {
+  margin-left: 15px;
+}
+
+.side-navigation .user-content__name {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.03rem;
+  text-transform: capitalize;
+}
+
+.side-navigation .user-content__role {
+  font-size: 13px;
+  letter-spacing: 0.03rem;
+  text-transform: capitalize;
+}
+
+.side-navigation a {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.03rem;
+  color: #f0f0f0;
+}
+
+.side-navigation li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background: #1f1f1f;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+
+.side-navigation li a:hover {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+
+.side-navigation li a img {
+  border-radius: 5px;
+}
+
+.side-navigation li a p {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.side-navigation .collapsible {
+  border: none;
+}
+
+.side-navigation .collapsible * {
+  padding: 0;
+  background: #1f1f1f !important;
+  border: none;
+}
+
+.side-navigation .collapsible a {
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+}
+
+.side-navigation .collapsible-header a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.side-navigation .collapsible-body li {
+  padding-left: 15px;
+  border-bottom: 5px solid black;
+}
+
+.side-navigation .collapsible-body li:first-of-type {
+  border-top: 5px solid black;
+}
+
+main {
+  padding: 5px 25px 70px 25px;
+}
+
+main .pagination {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.login {
+  min-height: 100vh;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(22, 22, 22, 0.8)), to(rgba(26, 26, 26, 0.8))), url("../images/school.jpg") center;
+  background: linear-gradient(to right bottom, rgba(22, 22, 22, 0.8), rgba(26, 26, 26, 0.8)), url("../images/school.jpg") center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 60px 30px;
+  width: 500px;
+  border-radius: 10px;
+  background: #0c0c0c;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.login-box h3 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+
+.login-box input {
+  color: white;
+  letter-spacing: .03rem;
+}
+
+.login-box .btn {
+  margin-top: 15px;
+}
+/*# sourceMappingURL=style.css.map */
