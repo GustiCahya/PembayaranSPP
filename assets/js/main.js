@@ -1,9 +1,10 @@
-const $ = (target) => {
-    const elems = document.querySelectorAll(target);
-    return (elems.length > 1) ? elems : document.querySelector(target);  
-}
-
 document.addEventListener("DOMContentLoaded", function(){
     M.Collapsible.init($('.collapsible'));
     M.FormSelect.init($('select'));
+    M.Datepicker.init($('.datepicker'), {
+        autoClose: true,
+        format: 'yyyy-mm-dd',
+        setDefaultDate: true,
+        defaultDate: new Date()
+    });
 });

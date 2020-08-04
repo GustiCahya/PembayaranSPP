@@ -3,7 +3,7 @@
 	<form class="form-input" action="<?=base_url()?>dashboard/petugas/create" method="POST">
 	<div class="input-field">
 			<label for="id_petugas">ID Petugas</label>
-			<input type="text" id="id_petugas" name="id_petugas">
+			<input type="text" id="id_petugas" name="id_petugas" value="<?=$this->db->get('petugas')->num_rows()+1?>">
 			<?= form_error('id_petugas', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
@@ -14,7 +14,7 @@
 		<div class="input-field">
 			<label for="password">Password</label>
 			<input type="password" id="password" name="password">
-			<?= form_error('username', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
+			<?= form_error('password', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
 			<label for="nama_petugas">Nama Petugas</label>

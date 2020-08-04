@@ -8,7 +8,7 @@
 		</div>
 		<div class="input-field">
 			<label for="nis">NIS</label>
-			<input type="text" id="nis" name="nis" value="<?=$nis?>">
+			<input type="text" id="nis" name="nis" value="<?=$nis?>" disabled>
 			<?= form_error('nis', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
@@ -17,8 +17,20 @@
 			<?= form_error('nama', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
-			<label for="id_kelas">ID Kelas</label>
-			<input type="text" id="id_kelas" name="id_kelas" value="<?=$id_kelas?>">
+			<select name="id_kelas" id="id_kelas">
+				<?php
+					$options = $this->db->get('kelas')->result_array();
+					$output = '';
+					for( $i=0; $i<count($options); $i++ ) {
+					  $output .= '<option value="'.$options[$i]['id_kelas'].'"'.
+					  			 ($id_kelas == $options[$i]['id_kelas'] ? 'selected="selected"' : '').'>' 
+								 . $options[$i]['nama_kelas'] 
+								 . '</option>';
+					}
+					echo $output;
+				?>
+			</select>
+			<label for="id_kelas">Kelas</label>
 			<?= form_error('id_kelas', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
@@ -32,8 +44,20 @@
 			<?= form_error('no_telp', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
-			<label for="id_spp">ID SPP</label>
-			<input type="text" id="id_spp" name="id_spp" value="<?=$id_spp?>">
+			<select name="id_spp" id="id_spp">
+				<?php
+					$options = $this->db->get('spp')->result_array();
+					$output = '';
+					for( $i=0; $i<count($options); $i++ ) {
+					  $output .= '<option value="'.$options[$i]['id_spp'].'"'.
+					  			 ($id_spp == $options[$i]['id_spp'] ? 'selected="selected"' : '').'>' 
+								 . $options[$i]['tahun'] 
+								 . '</option>';
+					}
+					echo $output;
+				?>
+			</select>
+			<label for="id_spp">Tahun SPP</label>
 			<?= form_error('id_spp', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<button type="submit" class="btn indigo darken-4 right">Submit</button>

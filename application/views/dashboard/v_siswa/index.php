@@ -8,10 +8,10 @@
 			<th>NISN</th>
 			<th>NIS</th>
 			<th>Nama</th>
-			<th>Id Kelas</th>
+			<th>Kelas</th>
 			<th>Alamat</th>
 			<th>No telp.</th>
-			<th>Id SPP</th>
+			<th>SPP</th>
 			<th>Action</th>
 		</tr>
 		<?php foreach($siswa as $key => $value):?>
@@ -20,10 +20,10 @@
 			<td><?=$value['nisn']?></td>
 			<td><?=$value['nis']?></td>
 			<td><?=$value['nama']?></td>
-			<td><?=$value['id_kelas']?></td>
+			<td><?=$value['nama_kelas']?></td>
 			<td><?=$value['alamat']?></td>
 			<td><?=$value['no_telp']?></td>
-			<td><?=$value['id_spp']?></td>
+			<td><?=$value['tahun']?></td>
 			<td>
 				<a href="<?=base_url()?>dashboard/siswa/update?key=<?=$value['nisn']?>" class="btn waves-effect waves-light yellow darken-3">
 					<i class="fas fa-pencil"></i>

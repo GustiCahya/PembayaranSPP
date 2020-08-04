@@ -24,22 +24,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="login">
 	<div class="login-box">
-		<h3>LOGIN</h3>
-		<form action="<?=base_url()?>auth/login" method="POST">
+		<h3>LOGIN SISWA</h3>
+		<form action="<?=base_url()?>auth/login_siswa" method="POST">
 			<div class="input-field">
-				<label for="username">Username</label>
-				<input type="text" id="username" name="username">
-				<?= form_error('username', '<span style="font-size: 13px; color: salmon;" class="left">', '</span>'); ?>
+				<label for="nisn">NISN</label>
+				<input type="text" id="nisn" name="nisn">
+				<?= form_error('nisn', '<span style="font-size: 13px; color: salmon;" class="left">', '</span>'); ?>
 			</div>
 			<div class="input-field">
-				<label for="password">Password</label>
-				<input type="password" id="password" name="password">
-				<?= form_error('password', '<span style="font-size: 13px; color: salmon;" class="left">', '</span>'); ?>
+				<label for="nis">NIS</label>
+				<input type="text" id="nis" name="nis">
+				<?= form_error('nis', '<span style="font-size: 13px; color: salmon;" class="left">', '</span>'); ?>
 			</div>
 			<?= $this->session->flashdata('message');?>
 			<button class="btn waves-effect indigo darken-4">Submit</button>
 		</form>
-		<a href="<?=base_url()?>auth/login_siswa" style="display: inline-block; margin-top:15px;">Login Sebagai Siswa</a>
+		<a href="<?=base_url()?>auth/login" style="display: inline-block; margin-top:15px;">Login Sebagai Petugas</a>
 	</div>
 </div>
 </body>

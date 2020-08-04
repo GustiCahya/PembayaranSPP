@@ -40,6 +40,39 @@ class Auth extends CI_Controller {
 		}
 	}
 
+	public function login_siswa(){
+		if($this->session->userdata('user')){
+			redirect('dashboard');
+		}	
+
+		$this->load->model('siswa');
+		$this->form_validation->set_rules('nisn', 'NISN', 'trim|required');
+		$this->form_validation->set_rules('nis', 'nis', 'trim|required');
+
+		if($this->form_validation->run() == false){
+			$this->load->view('v_login_siswa');
+		}else{
+			$nisn = $this->input->post('nisn');
+			$nis = $this->input->post('nis');
+			$user = $this->siswa->findOne($nisn);
+			if(isset($user['nisn']) && isset($user['nis']) ){
+				if($user['nisn'] == $nisn && $user['nis'] == $nis){
+					$this->session->set_userdata('user', intval($user['nisn']));
+					redirect('dashboard/pembayaran');
+				}else{
+					$this->session->set_flashdata('message', 
+					'<div class="left red" style="padding: 3px 5px">NISN atau NIS salah</div>');
+					redirect('auth/login_siswa');
+				}
+			}else{
+				$this->session->set_flashdata('message', 
+				'<div class="left red" style="padding: 3px 5px">NISN atau NIS salah</div>');
+				redirect('auth/login_siswa');
+			}
+		}
+
+	}
+
 	public function logout()
 	{
 		$this->session->unset_userdata('user');

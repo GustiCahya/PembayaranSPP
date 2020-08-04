@@ -4,15 +4,14 @@
 	class="btn waves-effect waves-light blue darken-4">Create Petugas</a>
 	<table>
 		<tr>
-			<th>No.</th>
 			<th>ID Petugas</th>
 			<th>Username</th>
 			<th>Nama Petugas</th>
 			<th>Level</th>
+			<th>Action</th>
 		</tr>
 		<?php foreach($petugas as $key => $value):?>
 		<tr>
-			<td><?=$key+1?></td>
 			<td><?=$value['id_petugas']?></td>
 			<td><?=$value['username']?></td>
 			<td><?=$value['nama_petugas']?></td>

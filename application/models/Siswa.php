@@ -7,6 +7,16 @@ class Siswa extends CI_Model
 	public function find(){
 		return $this->db->get($this->table)->result_array();
 	}
+	public function findWithFkList($limit, $start){
+		return $this->db->query("SELECT siswa.nisn, siswa.nis, 
+			siswa.nama, siswa.id_kelas, kelas.nama_kelas, siswa.alamat,
+			siswa.no_telp, siswa.id_spp, spp.tahun 
+			FROM siswa 
+			INNER JOIN kelas ON siswa.id_kelas=kelas.id_kelas
+			INNER JOIN spp ON siswa.id_spp=spp.id_spp
+			LIMIT ?, ?
+		", [$start, $limit])->result_array();
+	}
 	public function findOne($key){
 		if(is_array($key)){
             return $this->db->get_where($this->table, $key)->row_array();

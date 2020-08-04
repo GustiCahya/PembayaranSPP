@@ -8,12 +8,7 @@
 		</div>
 		<div class="input-field">
 			<label for="username">Username</label>
-			<input type="text" id="username" name="username" value="<?=$username?>">
-			<?= form_error('username', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
-		</div>
-		<div class="input-field">
-			<label for="password">Password</label>
-			<input type="password" id="password" name="password" value="<?=$password?>">
+			<input type="text" id="username" name="username" value="<?=$username?>" disabled>
 			<?= form_error('username', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<div class="input-field">
