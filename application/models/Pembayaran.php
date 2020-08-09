@@ -26,6 +26,15 @@ class Pembayaran extends CI_Model
         ',[$nisn])->result_array();
     }
 
+    public function findWithFkPetugas($id_petugas){
+        return $this->db->query('SELECT pembayaran.*, petugas.nama_petugas, siswa.nama 
+            FROM pembayaran
+            INNER JOIN petugas ON pembayaran.id_petugas=petugas.id_petugas
+            INNER JOIN siswa ON pembayaran.nisn=siswa.nisn
+            WHERE petugas.username=?
+        ',[$id_petugas])->result_array();
+    }
+
     public function findOne($key){
         if(is_array($key)){
             return $this->db->get_where($this->table, $key)->row_array();

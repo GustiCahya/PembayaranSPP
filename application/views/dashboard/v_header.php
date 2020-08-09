@@ -50,14 +50,19 @@
 				</div>
 			</li>
 
+			<?php if($role == 'admin'):?>
 			<li>
-				<a href="<?=base_url()?>dashboard/index">
-					<img src="<?=base_url()?>assets/images/sidebar/home.svg" alt="user" width="35" />
-					<p>Home</p>
+				<a href="<?=base_url()?>dashboard/pembayaran/transaksi">
+					<img src="<?=base_url()?>assets/images/sidebar/pembayaran.svg" alt="user" width="40" />
+					<p>Transaksi Pembayaran</p>
 				</a>
 			</li>
-
-			<?php if($role == 'admin'):?>
+			<li>
+				<a href="<?=base_url()?>dashboard/pembayaran">
+					<img src="<?=base_url()?>assets/images/sidebar/history.svg" alt="user" width="40" />
+					<p>History Pembayaran</p>
+				</a>
+			</li>
 			<li>
 				<a href="<?=base_url()?>dashboard/siswa">
 					<img src="<?=base_url()?>assets/images/sidebar/siswa.svg" alt="user" width="40" />
@@ -81,27 +86,6 @@
 					<img src="<?=base_url()?>assets/images/sidebar/spp.svg" alt="user" width="40" />
 					<p>SPP</p>
 				</a>
-			</li>
-			<li>
-				<ul class="collapsible black">
-					<li>
-						<div class="collapsible-header">
-							<a href="#">
-								<img src="<?=base_url()?>assets/images/sidebar/pembayaran.svg" alt="user" width="40" />
-								<p>Pembayaran</p>
-								<i class="fas fa-chevron-down"></i>
-							</a>
-						</div>
-						<ul class="collapsible-body">
-							<li>
-								<a href="<?=base_url()?>dashboard/pembayaran/transaksi">Transaksi Pembayaran</a>
-							</li>
-							<li>
-								<a href="<?=base_url()?>dashboard/pembayaran">History Pembayaran</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
 			</li>
 			<?php endif;?>
 			

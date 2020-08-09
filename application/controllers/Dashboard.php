@@ -25,9 +25,7 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('dashboard/v_header');
-		$this->load->view('dashboard/v_index');
-		$this->load->view('dashboard/v_footer');
+		redirect('dashboard/pembayaran/transaksi');
 	}
 
 	public function siswa()
@@ -429,6 +427,7 @@ class Dashboard extends CI_Controller {
 	public function pembayaran()
 	{
 		$this->load->model('pembayaran');
+		$this->load->model('spp');
 		$current_url = $this->uri->segments[count($this->uri->segments)];
 		switch($current_url){
 			case 'transaksi':
@@ -456,26 +455,35 @@ class Dashboard extends CI_Controller {
 					$indexBulan = intval((new DateTime($tanggal))->format('m'));
 					$tahun = (new DateTime($tanggal))->format('Y');
 					$bulan = $daftarBulan[$indexBulan-1];
-
-					$data = [
-						'id_pembayaran' => $this->input->post('id_pembayaran'),
-						'id_petugas' => $this->input->post('id_petugas'),
-						'nisn' => $this->input->post('nisn'),
-						'tgl_bayar' => $tanggal,
-						'bulan_dibayar' => $bulan,
-						'tahun_dibayar' => $tahun,
-						'id_spp' => $this->input->post('id_spp'),
-						'jumlah_bayar' => $this->input->post('jumlah_bayar'),
-					];
-					
-					$this->pembayaran->insert($data);
-					redirect('dashboard/pembayaran/index');
+					$id_spp = $this->input->post('id_spp');
+					$jumlah_bayar = $this->input->post('jumlah_bayar');
+					$nominal = +$this->spp->findOne($id_spp)['nominal'];
+					if($jumlah_bayar >= $nominal){
+						$data = [
+							'id_pembayaran' => $this->input->post('id_pembayaran'),
+							'id_petugas' => $this->input->post('id_petugas'),
+							'nisn' => $this->input->post('nisn'),
+							'tgl_bayar' => $tanggal,
+							'bulan_dibayar' => $bulan,
+							'tahun_dibayar' => $tahun,
+							'id_spp' => $id_spp,
+							'jumlah_bayar' => $jumlah_bayar,
+						];
+						
+						$this->pembayaran->insert($data);
+						redirect('dashboard/pembayaran/index');
+					}else{
+						$this->session->set_flashdata('message', '<div class="left red white-text" style="padding: 3px 5px">Jumlah Bayar tidak boleh kurang dari '.$nominal.'</div>');
+						redirect('dashboard/pembayaran/transaksi');
+					}
 				}
 
 			break;
 			default:
 				if($this->role == 'siswa'){
 					$data['history'] = $this->pembayaran->findWithFkSiswa($this->user);
+				}else if($this->role == 'petugas'){
+					$data['history'] = $this->pembayaran->findWithFkPetugas($this->user);
 				}else{
 					$data['history'] = $this->pembayaran->findWithFk();
 				}

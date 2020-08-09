@@ -67,6 +67,7 @@
             <?= form_error('jumlah_bayar', '<span class="left" style="color: crimson; font-size: 13px;">' 
                         ,'</span>'); ?>
         </div>
+        <?= $this->session->flashdata('message')?>
         <button class="btn indigo darken-4 right">SUBMIT</button>
     </form>
 </main>
