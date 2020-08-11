@@ -158,7 +158,7 @@ class Dashboard extends CI_Controller {
 					$insertData = [
 						'id_petugas' => $this->input->post('id_petugas'),
 						'username' => $this->input->post('username'),
-						'password' => PASSWORD_HASH($this->input->post('password'), PASSWORD_DEFAULT),
+						'password' => PASSWORD_HASH($this->input->post('password'), PASSWORD_BCRYPT),
 						'nama_petugas' => $this->input->post('nama_petugas'),
 						'level' => $this->input->post('level'),
 					];
@@ -449,13 +449,10 @@ class Dashboard extends CI_Controller {
 					$this->load->view('dashboard/v_pembayaran/transaksi');
 					$this->load->view('dashboard/v_footer');
 				}else{
-
-					$daftarBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 					$tanggal = $this->input->post('tgl_bayar');
-					$indexBulan = intval((new DateTime($tanggal))->format('m'));
+					$bulan= intval((new DateTime($tanggal))->format('m'));
 					$tahun = (new DateTime($tanggal))->format('Y');
-					$bulan = $daftarBulan[$indexBulan-1];
-					$id_spp = $this->input->post('id_spp');
+					$id_spp = $this->spp->findOne(['tahun' => $tahun])['id_spp'];
 					$jumlah_bayar = $this->input->post('jumlah_bayar');
 					$nominal = +$this->spp->findOne($id_spp)['nominal'];
 					if($jumlah_bayar >= $nominal){
@@ -473,11 +470,15 @@ class Dashboard extends CI_Controller {
 						$this->pembayaran->insert($data);
 						redirect('dashboard/pembayaran/index');
 					}else{
-						$this->session->set_flashdata('message', '<div class="left red white-text" style="padding: 3px 5px">Jumlah Bayar tidak boleh kurang dari '.$nominal.'</div>');
+						$this->session->set_flashdata('message', '<div class="left red white-text" style="padding: 3px 5px">Jumlah Bayar tidak boleh kurang dari '.number_format($nominal, 0, ',', '.').'</div>');
 						redirect('dashboard/pembayaran/transaksi');
 					}
 				}
 
+			break;
+			case "delete":
+				$this->pembayaran->delete($this->input->get('id'));
+				redirect('dashboard/pembayaran');
 			break;
 			default:
 				if($this->role == 'siswa'){

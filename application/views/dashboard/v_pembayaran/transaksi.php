@@ -45,25 +45,9 @@
                         ,'</span>'); ?>
         </div>
         <div class="input-field">
-            <select name="id_spp" id="id_spp">
-                <?php
-                    $options = $this->db->get('spp')->result_array();
-                    $output = '';
-                    foreach($options as $key => $option){
-                        $output .= '<option value="'.$option['id_spp'].'">'
-                                    .'id_spp: '.$option['id_spp'].' | tahun: '.$option['tahun']
-                                    .'</option>';
-                    }
-                    echo $output;
-                ?>
-            </select>
-            <label for="id_spp">ID SPP</label>
-            <?= form_error('id_spp', '<span class="left" style="color: crimson; font-size: 13px;">' 
-                        ,'</span>'); ?>
-        </div>
-        <div class="input-field">
             <label for="jumlah_bayar">Jumlah Bayar</label>
             <input type="text" id="jumlah_bayar" name="jumlah_bayar">
+            <span class="minimum_bayar" style="display: block; font-size:13px; letter-spacing: 0.03rem;"></span>
             <?= form_error('jumlah_bayar', '<span class="left" style="color: crimson; font-size: 13px;">' 
                         ,'</span>'); ?>
         </div>
@@ -73,11 +57,11 @@
 </main>
 <script>
 
-    let val = $('#id_spp').value;
-    getNominal(val);
-    $('#id_spp').addEventListener('change', function(event){
-        val = event.target.value;
-        getNominal(val);
+    let tahun = (new Date($('#tgl_bayar').value)).getFullYear();
+    getNominal(tahun);
+    $('#tgl_bayar').addEventListener('change', function(event){
+        tahun = event.target.value;
+        getNominal(tahun);
     });
     $('#jumlah_bayar').focus();
 
@@ -87,10 +71,10 @@
             headers : {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({id_spp: val})
+            body: JSON.stringify({tahun})
         })
         .then(response => response.json())
-        .then(data => $('#jumlah_bayar').value = data);
+        .then(value => $('.minimum_bayar').innerHTML = "Biaya SPP : "+parseInt(value).toLocaleString());
     }
     
 </script>

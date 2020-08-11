@@ -6,6 +6,7 @@
 		$this->load->model('petugas');
 		$role = $this->petugas->findOne(['username' => $user])['level'];
 	}
+	$daftarBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 ?>
 
 <style>
@@ -52,26 +53,29 @@
     <table>
 		<tr>
 			<th>ID Pembayaran</th>
-			<th>Petugas</th>
+			<th>ID Petugas</th>
+			<th>Nama Petugas</th>
 			<th>NISN</th>
-			<th>Siswa</th>
+			<th>Nama Siswa</th>
 			<th>Tanggal Bayar</th>
 			<th>Bulan Dibayar</th>
             <th>Tahun Dibayar</th>
-            <th>ID SPP</th>
-            <th>Jumlah Bayar</th>
+			<th>Jumlah Bayar</th>
+			<th>Action</th>
 		</tr>
 		<?php foreach($history as $key => $value):?>
+		<?php $idPembayaran = $value['id_pembayaran']; ?>
 		<tr>
-			<td><?=$value['id_pembayaran']?></td>
+			<td><?=$idPembayaran?></td>
+			<td><?=$value['id_petugas']?></td>
 			<td><?=$value['nama_petugas']?></td>
 			<td><?=$value['nisn']?></td>
 			<td><?=$value['nama']?></td>
-			<td><?=(new DateTime($value['tgl_bayar']))->format('d-m-Y')?></td>
-			<td><?=$value['bulan_dibayar']?></td>
+			<td><?=(new DateTime($value['tgl_bayar']))->format('d/m/Y')?></td>
+			<td><?=$daftarBulan[$value['bulan_dibayar']-1]?></td>
 			<td><?=$value['tahun_dibayar']?></td>
-			<td><?=$value['id_spp']?></td>
-			<td><?=$value['jumlah_bayar']?></td>
+			<td><?=number_format($value['jumlah_bayar'], 0, ',', '.')?></td>
+			<td><a href="<?=base_url("dashboard/pembayaran/delete?id=$idPembayaran")?>" class="btn red waves-effect waves-light"><i class="fas fa-trash"></i></a></td>
 		</tr>
 		<?php endforeach;?>
 	</table>

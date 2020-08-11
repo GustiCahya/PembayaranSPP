@@ -13,7 +13,7 @@
 		<tr>
 			<td><?=$value['id_spp']?></td>
 			<td><?=$value['tahun']?></td>
-			<td><?=$value['nominal']?></td>
+			<td><?=number_format($value['nominal'], 0, ',', '.')?></td>
 
 			<td>
 				<a href="<?=base_url()?>dashboard/spp/update?key=<?=$value['id_spp']?>" class="btn waves-effect waves-light yellow darken-3">
