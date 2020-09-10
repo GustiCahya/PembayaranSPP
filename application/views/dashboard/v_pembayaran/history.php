@@ -36,6 +36,9 @@
 			left: 50%;
 			transform: translateX(-50%);
 		}
+		.aksi{
+			display: none;
+		}
 	}
 </style>
 <main class="laporan">
@@ -61,7 +64,7 @@
 			<th>Bulan Dibayar</th>
             <th>Tahun Dibayar</th>
 			<th>Jumlah Bayar</th>
-			<th>Action</th>
+			<th class="aksi">Action</th>
 		</tr>
 		<?php foreach($history as $key => $value):?>
 		<?php $idPembayaran = $value['id_pembayaran']; ?>
@@ -75,7 +78,7 @@
 			<td><?=$daftarBulan[$value['bulan_dibayar']-1]?></td>
 			<td><?=$value['tahun_dibayar']?></td>
 			<td><?=number_format($value['jumlah_bayar'], 0, ',', '.')?></td>
-			<td><a href="<?=base_url("dashboard/pembayaran/delete?id=$idPembayaran")?>" class="btn red waves-effect waves-light"><i class="fas fa-trash"></i></a></td>
+			<td class="aksi"><a href="<?=base_url("dashboard/pembayaran/delete?id=$idPembayaran")?>" class="btn red waves-effect waves-light"><i class="fas fa-trash"></i></a></td>
 		</tr>
 		<?php endforeach;?>
 	</table>

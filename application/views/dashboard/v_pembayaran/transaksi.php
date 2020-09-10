@@ -46,7 +46,7 @@
         </div>
         <div class="input-field">
             <label for="jumlah_bayar">Jumlah Bayar</label>
-            <input type="text" id="jumlah_bayar" name="jumlah_bayar">
+            <input type="number" id="jumlah_bayar" name="jumlah_bayar">
             <span class="minimum_bayar" style="display: block; font-size:13px; letter-spacing: 0.03rem;"></span>
             <?= form_error('jumlah_bayar', '<span class="left" style="color: crimson; font-size: 13px;">' 
                         ,'</span>'); ?>

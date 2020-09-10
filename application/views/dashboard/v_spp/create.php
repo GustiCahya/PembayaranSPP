@@ -14,7 +14,7 @@
 		</div>
 		<div class="input-field">
 			<label for="nominal">Nominal</label>
-			<input type="text" id="nominal" name="nominal">
+			<input type="number" id="nominal" name="nominal">
 			<?= form_error('nominal', '<span style="font-size: 13px; color: crimson;" class="left">', '</span>'); ?>
 		</div>
 		<button type="submit" class="btn indigo darken-4 right">Submit</button>
