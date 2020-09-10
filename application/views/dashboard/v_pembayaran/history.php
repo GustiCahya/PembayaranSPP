@@ -40,6 +40,11 @@
 			display: none;
 		}
 	}
+	<?php if($role == "siswa"):?>
+		.aksi{
+			display: none;
+		}
+	<?php endif;?>
 </style>
 <main class="laporan">
 	<h3 class="laporan__title">Laporan Pembayaran</h3>

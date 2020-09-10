@@ -1,5 +1,5 @@
 <main>
-	<h3>Create SPP</h3>
+	<h3>Update SPP</h3>
 	<form class="form-input" action="<?=base_url()?>dashboard/spp/update?key=<?=$id_spp?>" method="POST">
 		<div class="input-field">
 			<label for="id_spp">ID SPP</label>
